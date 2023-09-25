@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-
+GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap"
+rel="stylesheet">
+<style>
+#main-header{
+font-family: 'Roboto Condensed', sans-serif;
+text-align: center;
+color: white;
+}
+p{
+font-family: 'Roboto Condensed', sans-serif;
+color: white;
+}
+.container{
+background-color: #282a35;
+border-radius: 1%;
+}
+body{
+background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikorychP6cBl4aVtmNR8Kn5dYMO1moj9KyRy_P0IpRdOfMD0XrezYOwpp1P6UGTf6rC4l6NZgeLIxB_XLhKz4kBB53BLL-XJToWniYSUvlNiJSNlZHDD0fBrlI2pGBEsZWhLRFZwrbas7_-aW1jfNUOxoths2HVKLOVtCjvIJ1oxVQ6mCqCNuWhFPhg/w385-h578/IMG_9281.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-color: black;
+} 
+#small-logo{
+font-family: 'Tourney', cursive;
+text-align: center;
+color: lightskyblue;
+}
+label{
+font-family: 'Roboto Condensed', sans-serif;
+color: white;
+}
+#submitButton{
+font-family: 'Roboto Condensed', sans-serif;
+margin-bottom: 2%;
+border-radius: 4px;
+background-color: #282a35;
+border-color: #e7e9eb;
+font-family: 'Roboto Condensed', sans-serif;
+color: white;
+padding: 1%;
+width: 15%;
+}
+#footer{
+font-family: 'Roboto Condensed', sans-serif;
+text-align: left;
+color: #e7e9eb;
+font-size: 50%;
+margin-top: 5%;
+}
+#order-detail-text{
+font-family: 'Roboto Condensed', sans-serif;
+text-align: left;
+color: white;
+}
+input[type=text]{
+background-color: #282a35;
+border-color: #e7e9eb;
+border-radius: 4px;
+color: white;
+font-family: 'Roboto Condensed', sans-serif;
+}
+input[type=date]{
+background-color: #282a35;
+font-family: 'Roboto Condensed', sans-serif;
+border-radius: 4px;
+color: white;
+border-color: #e7e9eb;
+}
+.col{
+border-radius: 4px;
+font-family: 'Roboto Condensed', sans-serif;
+color: white;
+border-color: #e7e9eb;
+background-color: #282a35;
+margin-left: 1.25%;
+margin-bottom: 2.5%;
+margin-right: 1.25%;
+}
+#newElementCreation{
+font-family: 'Roboto Condensed', sans-serif;
+margin-bottom: 2%;
+border-radius: 4px;
+background-color: #282a35;
+border-color: #e7e9eb;
+font-family: 'Roboto Condensed', sans-serif;
+color: white;
+padding: 1%;
+}
+</style>
+<title>Order Form</title>
+</head>
+<body>
+<header id="small-logo">
+<h2>ZerX Electronics</h2>
+</header>
+<div class="container">
+<h1 id="main-header">Order Form</h1>
+<form name="form">
+<label for="fullName">Full Name</label><br>
+<input type="text" id="fullName" name="fullName"><br>
+<label for="phoneNumber">Phone Number</label><br>
+<input type="text" id="phoneNumber" name="phoneNumber"><br>
+<label for="orderDate">Order Date</label><br>
+<input type="date" id="orderDate" name="orderDate"><br>
+<br></br>
+<h2 id="order-detail-text">Order Details</h2>
+<div class="row" id="3OrderDetails">
+<div class="col">
+<p>Item Name</p>
+<!-- <input type="text" name="itemName"> -->
+</div>
+<div class="col">
+<p>Item Price</p>
+<!-- <input type="text" name="itemPrice"> -->
+</div>
+<div class="col">
+<p>Quantity</p>
+<!-- <input type="text" name="quantity"> -->
+</div>
+</div>
+</form>
+<div id="newItemContainer" class="row"></div>
+<button id="newElementCreation">Add item</button>
+<br></br>
+<input type="submit" value="Submit" id="submitButton">
+</div>
+<footer>
+<div class="container-fluid">
+<p id="footer">ZerX Electronics 2023</p>
+</div>
+</footer>
+<script>
+function addInput(){
+for(let i = 0; i < 3; i++){
+const input = document.createElement("input");
+input.type = "text";
+input.name = "textInput" + i;
+input.classList.add("col");
+document.getElementById("newItemContainer").appendChild(input);
+}
+}
+function addBreak(){
+const newBr = document.createElement("break");
+document.getElementById("newItemContainer").appendChild(newBr);
+}
+document.getElementById("newElementCreation").addEventListener("click", addBreak);
+document.getElementById("newElementCreation").addEventListener("click", addInput);
+</script>
+</body>
+</html>
